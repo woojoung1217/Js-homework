@@ -58,42 +58,34 @@ function removeClassList(items) {
 
 
 
-
 /* ------------------ handle fuction ------------------ */
 
-
+/** ID input 값에 변환이 있을 때 실행되는 함수 */
 function handleId() {
   let valueToLength = this.value.length;
   perfectId = user.id === this.value;
-
   let isCorrectId = emailReg(this.value) //로직 불린 반환
-  if (valueToLength == 0) {
-    isCorrectId = true;
-  }
+  if (valueToLength == 0) isCorrectId = true;
   return isCorrectId ? removeClassList(userEmail) : addClassList(userEmail)
 }
 
-
+/** password input 값에 변환이 있을 때 실행되는 함수  */
 function handlePassword() {
   let valueToLength = this.value.length;
   let isCorrectPassword = pwReg(this.value);
   perfectPassword = user.pw === this.value;
-  console.log(perfectPassword);
-  if (valueToLength == 0 || null) {
-    isCorrectPassword = true;
-  }
+  if (valueToLength == 0 || null) isCorrectPassword = true;
   return isCorrectPassword ? removeClassList(userPassword) : addClassList(userPassword)
 }
 
-
+/** 제출 함수 조건이 둘다 참 인 경우 location 변경 */
 function handleSubmit(e) {
   e.preventDefault();
-
   if (perfectId && perfectPassword) {
-    window.location.href = 'welcome.html'
-  } else if (perfectPassword === false) {
-    let dis = document.getElementById('userPasswordError');
-    dis.innerHTML = '아이디 혹은 비밀번호가 잘못 됐습니다. ';
+    location.href = 'welcome.html'
+  }
+  else if (perfectPassword === false || perfectId === false) {
+    alert('아이디 비밀번호를 다시 확인해주세요')
   }
 }
 
@@ -117,7 +109,6 @@ function pwReg(text) {
   const re = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^*+=-]).{6,16}$/;
   return re.test(String(text).toLowerCase());
 }
-
 
 
 
