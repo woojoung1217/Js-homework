@@ -7,7 +7,7 @@
 
 💥💥💥💥
 
-# 주요코드 🔨
+# 주요코드 🔨 함수분리
 
 ```js
 /*by woojoung YOON */
@@ -32,8 +32,7 @@ const user = {
 
 // *전역* 아이디 와 비밀번호의 통과여부 상태
 
-// let perfectId = false;
-// let perfectPassword = false;
+
 
 const userEmail = document.querySelector("#userEmail");
 const userPassword = document.querySelector("#userPassword");
