@@ -50,25 +50,7 @@ const userEmail = document.querySelector("#userEmail");
 const userPassword = document.querySelector("#userPassword");
 const submmitBtn = document.querySelector(".btn-login");
 
-/**css를 조건에 따라 추가 해주는 함수 items 에는 userEmail 과 userPassword 를 받아 조건 부 처리 */
-function addClassList(items) {
-  if (items === userEmail) {
-    items.classList.add("is--invalid");
-  } else if (items === userPassword) {
-    let dis = document.getElementById("userPasswordError");
-    dis.style.display = "block";
-  }
-}
 
-/** 조건에 따라 css 속성을 안 보이게 해주는 함수 */
-function removeClassList(items) {
-  if (items === userEmail) {
-    items.classList.remove("is--invalid");
-  } else if (items === userPassword) {
-    let dis = document.getElementById("userPasswordError");
-    dis.style.display = "none";
-  }
-}
 
 /* ------------------ handle fuction ------------------ */
 
@@ -107,6 +89,29 @@ function handleSubmit(e) {
 userEmail.addEventListener("input", handleId);
 userPassword.addEventListener("input", handlePassword);
 submmitBtn.addEventListener("click", handleSubmit);
+
+
+ // CSS control 
+/**css를 조건에 따라 추가 해주는 함수 items 에는 userEmail 과 userPassword 를 받아 조건 부 처리 */
+
+function addClassList(items) {
+  if (items === userEmail) {
+    items.classList.add("is--invalid");
+  } else if (items === userPassword) {
+    let dis = document.getElementById("userPasswordError");
+    dis.style.display = "block";
+  }
+}
+
+/** 조건에 따라 css 속성을 안 보이게 해주는 함수 */
+function removeClassList(items) {
+  if (items === userEmail) {
+    items.classList.remove("is--invalid");
+  } else if (items === userPassword) {
+    let dis = document.getElementById("userPasswordError");
+    dis.style.display = "none";
+  }
+}
 
 /* ---------------- auth login ---------------- */
 
