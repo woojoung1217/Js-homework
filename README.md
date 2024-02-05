@@ -107,9 +107,8 @@ function addClassList(items) {
 function removeClassList(items) {
   if (items === userEmail) {
     items.classList.remove("is--invalid");
-  } else if (items === userPassword) {
-    let dis = document.getElementById("userPasswordError");
-    dis.style.display = "none";
+  }   else if (perfectPassword === false || perfectId === false) {
+    alert('아이디 비밀번호를 다시 확인해주세요')
   }
 }
 
